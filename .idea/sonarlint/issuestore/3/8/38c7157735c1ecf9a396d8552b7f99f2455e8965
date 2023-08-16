@@ -1,0 +1,11 @@
+
+
+java:S1319"sThe type of "listaDeAreasDeTexto" should be an interface such as "List" rather than the implementation "ArrayList".(Š²Ÿóıÿÿÿÿ
+†
+java:S1319"kThe type of "listaScroll" should be an interface such as "List" rather than the implementation "ArrayList".(Š²Ÿóıÿÿÿÿ
+ˆ
+java:S1319'"sThe type of "listaDeAreasDeTexto" should be an interface such as "List" rather than the implementation "ArrayList".(Ñº¹O
+
+java:S1319Z"sThe type of "listaDeAreasDeTexto" should be an interface such as "List" rather than the implementation "ArrayList".(¹²Çÿÿÿÿÿ
+O
+java:S1118":Add a private constructor to hide the implicit public one.(êº°F
