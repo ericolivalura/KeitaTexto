@@ -9,11 +9,11 @@ public class ItemDoMenu extends JMenu {
 
     protected JPanel janela;
     protected ArrayList<File> listaDeArquivos;
-    protected ArrayList<JTextPane> listaDeAreasDeTexto;
+    protected ArrayList<JTextPane> listaDeAreasDeTexto = new ArrayList<>();
     protected ArrayList<JScrollPane> listaDeScrolls;
-    protected int contadorDeJanelasDeTexto = 0;
+    //protected int contadorDeJanelasDeTexto;
     protected ArrayList<UndoManager> listaUndoManager;
-    protected JTabbedPane abaTPane;
+    protected JTabbedPane abaTPane = new JTabbedPane();
     protected boolean numeracao = false;
     protected boolean existeJanelaDeTexto = false;
 
@@ -22,4 +22,16 @@ public class ItemDoMenu extends JMenu {
     public static final String SELECIONAR = "Selecionar";
     public static final String VISUALIZAR = "Visualizar";
     public static final String APARENCIA = "Aparência";
+
+    public ItemDoMenu(String s) {
+        super(s);
+    }
+
+    public JTabbedPane getAbaTPane() {
+        return abaTPane;
+    }
+
+    public ArrayList<JTextPane> getListaDeAreasDeTexto() {
+        return listaDeAreasDeTexto;
+    }
 }

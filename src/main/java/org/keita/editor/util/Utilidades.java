@@ -1,5 +1,7 @@
 package org.keita.editor.util;
 
+import org.keita.editor.model.TipoDeFundo;
+
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
@@ -36,8 +38,11 @@ public class Utilidades {
         }
     }
 
-    public static void aplicarFundo(int contador, String tipo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
-        if (tipo.equalsIgnoreCase("normal")) {
+    public static void aplicarFundo(int contador, String tipoDeFundo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
+//        System.out.println(listaDeAreasDeTexto.size());
+//        System.out.println(tipoDeFundo);
+        System.out.println(TipoDeFundo.DARK.getNome());
+        if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.NORMAL.getNome())) {
             for (int i = 0; i < contador; i++) {
                 listaDeAreasDeTexto.get(i).selectAll();
 
@@ -53,8 +58,12 @@ public class Utilidades {
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.WHITE);
+//                System.out.println(listaDeAreasDeTexto.size());
+//                System.out.println(tipoDeFundo);
+               // System.out.println("cheguei");
             }
-        } else if (tipo.equalsIgnoreCase("dark")) {
+        } else if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.DARK.getNome())) {
+            System.out.println(contador);
             for (int i = 0; i < contador; i++) {
                 listaDeAreasDeTexto.get(i).selectAll();
 
@@ -70,6 +79,9 @@ public class Utilidades {
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.BLACK);
+//                System.out.println(listaDeAreasDeTexto.size());
+//                System.out.println(tipoDeFundo);
+                System.out.println("cheguei");
             }
         }
     }

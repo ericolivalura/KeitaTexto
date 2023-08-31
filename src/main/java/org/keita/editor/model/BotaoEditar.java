@@ -3,6 +3,10 @@ package org.keita.editor.model;
 import javax.swing.text.DefaultEditorKit;
 
 public class BotaoEditar extends ItemDoMenu {
+    public BotaoEditar(String s) {
+        super(s);
+    }
+
     private void desfazer() {
         if (listaUndoManager.get(abaTPane.getSelectedIndex()).canUndo()) {
             listaUndoManager.get(abaTPane.getSelectedIndex()).undo();

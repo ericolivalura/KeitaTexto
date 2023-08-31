@@ -1,6 +1,7 @@
 package org.keita.editor.view;
 
 import org.keita.editor.model.Acoes;
+import org.keita.editor.model.BotaoAparencia;
 import org.keita.editor.model.ItemDoMenu;
 import org.keita.editor.model.TipoDeFundo;
 import org.keita.editor.util.Utilidades;
@@ -9,8 +10,6 @@ import javax.swing.*;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.undo.UndoManager;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -51,7 +50,7 @@ public class Painel extends JPanel {
     private final String salvarComo = Acoes.SALVAR_COMO.getNome();
     private final String selecionarTudo = Acoes.SELECIONAR_TUDO.getNome();
 
-
+private BotaoAparencia botaoAparencia;
     public Painel(JanelaPrincipal janelaPrincipal) {
         setLayout(new BorderLayout());
 
@@ -61,6 +60,8 @@ public class Painel extends JPanel {
         painelMenu.setLayout(new BorderLayout());
 
         criarBarraDeMenu();
+        //-----Painel Extra ------
+        criarPainelExtra(janelaPrincipal);
 
         //-----Agregando Opções ao Menu Arquivo
         criarMenuDeArquivo();
@@ -74,10 +75,12 @@ public class Painel extends JPanel {
         //-----Agregando opções ao menu Visualizar
         criarMenuVisualizar();
 
+
         //------Adicionando Barra de Menu
         painelMenu.add(barraDeMenu, BorderLayout.NORTH);
 
         //----- Area de Texto-----
+        //this.abaTPane = new JTabbedPane();
         this.abaTPane = new JTabbedPane();
 
         listaDeArquivos = new ArrayList<>();
@@ -91,8 +94,8 @@ public class Painel extends JPanel {
         criarBarraDeFerramentas();
 
 
-        //-----Painel Extra ------
-        criarPainelExtra(janelaPrincipal);
+//        //-----Painel Extra ------
+//        criarPainelExtra(janelaPrincipal);
 
         //------Menu Emergente------
         criarMenuEmergente();
@@ -123,7 +126,7 @@ public class Painel extends JPanel {
         painelExtra.setLayout(new BorderLayout());
         JPanel painelEsquerdo = new JPanel();
 
-        inserirAlfineteParaFixarTela(janelaPrincipal);
+        labelAlfinete = Alfinete.inserirAlfineteParaFixarTela(janelaPrincipal);
         painelEsquerdo.add(labelAlfinete);
 
         JPanel painelCentral = new JPanel();
@@ -140,38 +143,6 @@ public class Painel extends JPanel {
         painelExtra.add(painelCentral, BorderLayout.CENTER);
     }
 
-    private void inserirAlfineteParaFixarTela(JanelaPrincipal janelaPrincipal) {
-        labelAlfinete = new JLabel();
-        url = "src/main/java/org/keita/editor/img/alfinete.png";
-        labelAlfinete.setIcon(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-        labelAlfinete.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                estadoAlfinete = !estadoAlfinete;
-                janelaPrincipal.setAlwaysOnTop(estadoAlfinete);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                url = "src/main/java/org/keita/editor/img/alfinete_selecao.png";
-                labelAlfinete.setIcon(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (estadoAlfinete) {
-                    url = "src/main/java/org/keita/editor/img/alfinete_selecao.png";
-                    labelAlfinete.setIcon(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-
-                } else {
-                    url = "src/main/java/org/keita/editor/img/alfinete.png";
-                    labelAlfinete.setIcon(new ImageIcon(new ImageIcon(url).getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH)));
-                }
-
-            }
-        });
-    }
 
     private void criarBarraDeFerramentas() {
         barraDeFerramentas = new JToolBar(SwingConstants.VERTICAL);
@@ -209,6 +180,7 @@ public class Painel extends JPanel {
         selecionar = new JMenu(ItemDoMenu.SELECIONAR);
         visualizar = new JMenu(ItemDoMenu.VISUALIZAR);
         aparencia = new JMenu(ItemDoMenu.APARENCIA);
+        //botaoAparencia = new BotaoAparencia(ItemDoMenu.APARENCIA);
 
         barraDeMenu.add(arquivo);
         barraDeMenu.add(editar);
@@ -220,8 +192,11 @@ public class Painel extends JPanel {
         criarItem("Numeração", ItemDoMenu.VISUALIZAR);
         visualizar.addSeparator();
         visualizar.add(aparencia);
+//        botaoAparencia = new BotaoAparencia(ItemDoMenu.VISUALIZAR);
+//        visualizar.add(botaoAparencia);
         criarItem(normal, "aparência");
         criarItem(dark, "aparência");
+
     }
 
     private void criarMenuSelecionar() {
@@ -285,6 +260,7 @@ public class Painel extends JPanel {
         } else if (menu.equalsIgnoreCase(ItemDoMenu.VISUALIZAR)) {
             criarItemVisualizar(rotulo, elementoItem);
         } else if (menu.equalsIgnoreCase(ItemDoMenu.APARENCIA)) {
+            //botaoAparencia.criarItemAparencia(rotulo, elementoItem, barraDeAumentoDeFonte, contadorDeJanelasDeTexto);
             criarItemAparencia(rotulo, elementoItem);
         }
 

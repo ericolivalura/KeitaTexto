@@ -1,8 +1,8 @@
 package org.keita.editor.model;
 
 public enum TipoDeFundo {
-    NORMAL("Normal"),
-    DARK("Dark");
+    NORMAL("normal"),
+    DARK("dark");
     String nome;
 
     TipoDeFundo(String nome) {
