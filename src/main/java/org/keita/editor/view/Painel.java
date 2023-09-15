@@ -1,9 +1,6 @@
 package org.keita.editor.view;
 
-import org.keita.editor.model.Acoes;
-import org.keita.editor.model.BotaoAparencia;
-import org.keita.editor.model.ItemDoMenu;
-import org.keita.editor.model.TipoDeFundo;
+import org.keita.editor.model.*;
 import org.keita.editor.util.Utilidades;
 
 import javax.swing.*;
@@ -14,6 +11,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Painel extends JPanel {
+    private ItemDoMenu itemDoMenu;
     private final JTabbedPane abaTPane;
     private JPanel painelExtra;
     private final ArrayList<JTextPane> listaDeAreasDeTexto;
@@ -22,10 +20,12 @@ public class Painel extends JPanel {
     private JMenuBar barraDeMenu;
     private JMenu arquivo;
     private JMenu editar;
-    private JMenu selecionar;
+    //private JMenu selecionar;
+    private BotaoSelecionar selecionar;
     private JMenu visualizar;
     private JMenu aparencia;
-    private int contadorDeJanelasDeTexto = 0;
+//    private int contadorDeJanelasDeTexto = 0;
+    //private int contadorDeJanelasDeTexto;
     private boolean existeJanelaDeTexto = false;
     private final ArrayList<UndoManager> listaUndoManager;
     private boolean numeracao = false;
@@ -50,7 +50,9 @@ public class Painel extends JPanel {
     private final String salvarComo = Acoes.SALVAR_COMO.getNome();
     private final String selecionarTudo = Acoes.SELECIONAR_TUDO.getNome();
 
-private BotaoAparencia botaoAparencia;
+    private BotaoAparencia botaoAparencia;
+
+
     public Painel(JanelaPrincipal janelaPrincipal) {
         setLayout(new BorderLayout());
 
@@ -60,6 +62,8 @@ private BotaoAparencia botaoAparencia;
         painelMenu.setLayout(new BorderLayout());
 
         criarBarraDeMenu();
+        itemDoMenu = new ItemDoMenu();
+
         //-----Painel Extra ------
         criarPainelExtra(janelaPrincipal);
 
@@ -80,13 +84,17 @@ private BotaoAparencia botaoAparencia;
         painelMenu.add(barraDeMenu, BorderLayout.NORTH);
 
         //----- Area de Texto-----
-        //this.abaTPane = new JTabbedPane();
         this.abaTPane = new JTabbedPane();
 
-        listaDeArquivos = new ArrayList<>();
-        listaDeAreasDeTexto = new ArrayList<>();
-        listaDeScrolls = new ArrayList<>();
-        listaUndoManager = new ArrayList<>();
+//        listaDeArquivos = new ArrayList<>();
+//        listaDeAreasDeTexto = new ArrayList<>();
+//        listaDeScrolls = new ArrayList<>();
+//        listaUndoManager = new ArrayList<>();
+        listaDeArquivos = itemDoMenu.getListaDeArquivos();
+        listaDeAreasDeTexto = itemDoMenu.getListaDeAreasDeTexto();
+        listaDeScrolls = itemDoMenu.getListaDeScrolls();
+        listaUndoManager = itemDoMenu.getListaUndoManager();
+        //contadorDeJanelasDeTexto = itemDoMenu.getContadorDeJanelasDeTexto();
 
         Utilidades.desativaItens(itens);
 
@@ -130,17 +138,22 @@ private BotaoAparencia botaoAparencia;
         painelEsquerdo.add(labelAlfinete);
 
         JPanel painelCentral = new JPanel();
-        barraDeAumentoDeFonte = new JSlider(8, 36, 14);
-        barraDeAumentoDeFonte.setMajorTickSpacing(4);
-        barraDeAumentoDeFonte.setMinorTickSpacing(2);
-        barraDeAumentoDeFonte.setPaintTicks(true);
-        barraDeAumentoDeFonte.setPaintLabels(true);
-        barraDeAumentoDeFonte.addChangeListener(evento -> Utilidades.mudarTamanhoDoTexto(barraDeAumentoDeFonte.getValue(), contadorDeJanelasDeTexto, listaDeAreasDeTexto));
+        barraDeAumentoDeFonte = criarBarraDeAumentoDeFonte();
 
         painelCentral.add(barraDeAumentoDeFonte);
 
         painelExtra.add(painelEsquerdo, BorderLayout.WEST);
         painelExtra.add(painelCentral, BorderLayout.CENTER);
+    }
+
+    private JSlider criarBarraDeAumentoDeFonte() {
+        barraDeAumentoDeFonte = new JSlider(8, 36, 14);
+        barraDeAumentoDeFonte.setMajorTickSpacing(4);
+        barraDeAumentoDeFonte.setMinorTickSpacing(2);
+        barraDeAumentoDeFonte.setPaintTicks(true);
+        barraDeAumentoDeFonte.setPaintLabels(true);
+        barraDeAumentoDeFonte.addChangeListener(evento -> Utilidades.mudarTamanhoDoTexto(barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto));
+        return barraDeAumentoDeFonte;
     }
 
 
@@ -156,7 +169,6 @@ private BotaoAparencia botaoAparencia;
                 listaDeScrolls.remove(selecao);
                 listaUndoManager.remove(selecao);
                 listaDeArquivos.remove(selecao);
-                contadorDeJanelasDeTexto--;
                 if (abaTPane.getSelectedIndex() == -1) {
                     existeJanelaDeTexto = false;
                     Utilidades.desativaItens(itens);
@@ -177,7 +189,7 @@ private BotaoAparencia botaoAparencia;
         barraDeMenu = new JMenuBar();
         arquivo = new JMenu(ItemDoMenu.ARQUIVO);
         editar = new JMenu(ItemDoMenu.EDITAR);
-        selecionar = new JMenu(ItemDoMenu.SELECIONAR);
+        selecionar = new BotaoSelecionar(ItemDoMenu.SELECIONAR);
         visualizar = new JMenu(ItemDoMenu.VISUALIZAR);
         aparencia = new JMenu(ItemDoMenu.APARENCIA);
         //botaoAparencia = new BotaoAparencia(ItemDoMenu.APARENCIA);
@@ -220,28 +232,27 @@ private BotaoAparencia botaoAparencia;
     }
 
     private void criarJanelaDeTexto() {
+
         JPanel janela = new JPanel();
         janela.setLayout(new BorderLayout());
         listaDeArquivos.add(new File(""));
         listaDeAreasDeTexto.add(new JTextPane());
-        listaDeScrolls.add(new JScrollPane(listaDeAreasDeTexto.get(contadorDeJanelasDeTexto)));
+        listaDeScrolls.add(new JScrollPane(listaDeAreasDeTexto.get(listaDeAreasDeTexto.size() - 1)));
         listaUndoManager.add(new UndoManager());
 
-        listaDeAreasDeTexto.get(contadorDeJanelasDeTexto)
+        listaDeAreasDeTexto.get(listaDeAreasDeTexto.size() - 1)
                 .getDocument()
-                .addUndoableEditListener(listaUndoManager.get(contadorDeJanelasDeTexto));
+                .addUndoableEditListener(listaUndoManager.get(listaDeAreasDeTexto.size() - 1));
 
-        listaDeAreasDeTexto.get(contadorDeJanelasDeTexto)
+        listaDeAreasDeTexto.get(listaDeAreasDeTexto.size() - 1)
                 .setComponentPopupMenu(menuEmergente);
-        janela.add(listaDeScrolls.get(contadorDeJanelasDeTexto), BorderLayout.CENTER);
+        janela.add(listaDeScrolls.get(listaDeAreasDeTexto.size() - 1), BorderLayout.CENTER);
         abaTPane.addTab(novoArquivo, janela);
 
-        Utilidades.mostrarNumeracaoInicio(numeracao, listaDeAreasDeTexto.get(contadorDeJanelasDeTexto), listaDeScrolls.get(contadorDeJanelasDeTexto));
+        Utilidades.mostrarNumeracaoInicio(numeracao, listaDeAreasDeTexto.get(listaDeAreasDeTexto.size() - 1), listaDeScrolls.get(listaDeAreasDeTexto.size() - 1));
+        abaTPane.setSelectedIndex(listaDeAreasDeTexto.size() - 1);
 
-        abaTPane.setSelectedIndex(contadorDeJanelasDeTexto);
-
-        contadorDeJanelasDeTexto++;
-        Utilidades.aplicarFundo(contadorDeJanelasDeTexto, tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
+        Utilidades.aplicarFundo(tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
         existeJanelaDeTexto = true;
 
         Utilidades.ativaItens(itens);
@@ -260,7 +271,6 @@ private BotaoAparencia botaoAparencia;
         } else if (menu.equalsIgnoreCase(ItemDoMenu.VISUALIZAR)) {
             criarItemVisualizar(rotulo, elementoItem);
         } else if (menu.equalsIgnoreCase(ItemDoMenu.APARENCIA)) {
-            //botaoAparencia.criarItemAparencia(rotulo, elementoItem, barraDeAumentoDeFonte, contadorDeJanelasDeTexto);
             criarItemAparencia(rotulo, elementoItem);
         }
 
@@ -272,14 +282,14 @@ private BotaoAparencia botaoAparencia;
             elementoItem.addActionListener(e -> {
                 tipoDeFundo = normal;
                 if (abaTPane.getTabCount() > 0) {
-                    Utilidades.aplicarFundo(contadorDeJanelasDeTexto, tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
+                    Utilidades.aplicarFundo(tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
                 }
             });
         } else if (rotulo.equalsIgnoreCase(dark)) {
             elementoItem.addActionListener(e -> {
                 tipoDeFundo = dark;
                 if (abaTPane.getTabCount() > 0) {
-                    Utilidades.aplicarFundo(contadorDeJanelasDeTexto, tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
+                    Utilidades.aplicarFundo(tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
                 }
             });
         }
@@ -296,7 +306,7 @@ private BotaoAparencia botaoAparencia;
         selecionar.add(elementoItem);
         if (rotulo.equalsIgnoreCase(selecionarTudo)) {
             itens[7] = elementoItem;
-            elementoItem.addActionListener(evento -> selecionar());
+            elementoItem.addActionListener(evento -> selecionar.selecionar());
 
         }
     }
@@ -338,12 +348,12 @@ private BotaoAparencia botaoAparencia;
 
     private void numerarOuNao() {
         numeracao = !numeracao;
-        Utilidades.verNumeracao(contadorDeJanelasDeTexto, numeracao, listaDeAreasDeTexto, listaDeScrolls);
+        Utilidades.verNumeracao(numeracao, listaDeAreasDeTexto, listaDeScrolls);
     }
 
-    private void selecionar() {
-        listaDeAreasDeTexto.get(abaTPane.getSelectedIndex()).selectAll();
-    }
+//    private void selecionar() {
+//        listaDeAreasDeTexto.get(abaTPane.getSelectedIndex()).selectAll();
+//    }
 
     private DefaultEditorKit.PasteAction colar() {
         return new DefaultEditorKit.PasteAction();
@@ -433,8 +443,7 @@ private BotaoAparencia botaoAparencia;
             listaDeScrolls.remove(abaTPane.getTabCount() - 1);
             listaDeArquivos.remove(abaTPane.getTabCount() - 1);
             abaTPane.remove(abaTPane.getTabCount() - 1);
-            contadorDeJanelasDeTexto--;
-            if (contadorDeJanelasDeTexto < 1) {
+            if (listaDeAreasDeTexto.isEmpty()) {
                 existeJanelaDeTexto = false;
                 Utilidades.desativaItens(itens);
             }
@@ -475,7 +484,7 @@ private BotaoAparencia botaoAparencia;
                         }
                     }
                 }
-                Utilidades.aplicarFundo(contadorDeJanelasDeTexto, tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
+                Utilidades.aplicarFundo(tipoDeFundo, barraDeAumentoDeFonte.getValue(), listaDeAreasDeTexto);
             } else {
                 for (int i = 0; i < abaTPane.getTabCount(); i++) {
                     File mesmoArquivo = seletorDeArquivos.getSelectedFile();
@@ -486,7 +495,6 @@ private BotaoAparencia botaoAparencia;
                         listaDeScrolls.remove(abaTPane.getTabCount() - 1);
                         listaDeArquivos.remove(abaTPane.getTabCount() - 1);
                         abaTPane.remove(abaTPane.getTabCount() - 1);
-                        contadorDeJanelasDeTexto--;
                         break;
                     }
                 }

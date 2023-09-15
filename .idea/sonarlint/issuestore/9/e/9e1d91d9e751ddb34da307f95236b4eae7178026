@@ -1,0 +1,34 @@
+
+p
+java:S2293Ñ"YReplace the type specification in this constructor call with the diamond operator ("<>").(úĞÖ»
+D
+java:S1604£"(Make this anonymous inner class a lambda(Õ‰²­ıÿÿÿÿ
+j
+java:S3824ß"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(â¨¡üÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ğ½ï¦ùÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(–ñäŒÿÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ªßè¡ıÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÂûÀÚ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÊâÙÍ
+[
+java:S3358±"DExtract this nested ternary operation into an independent statement.(ù÷õ
+J
+java:S1874ö"3Remove this use of "viewToModel"; it is deprecated.(¤èš•
+O
+java:S1874÷"3Remove this use of "viewToModel"; it is deprecated.(€ÈÚôüÿÿÿÿ
+]
+java:S1126œ"AReplace this if-then-else statement by a single return statement.(ñ—¹¼øÿÿÿÿ
+O
+java:S1874Â"3Remove this use of "modelToView"; it is deprecated.(ş…Ã şÿÿÿÿ
+R	java:S125ÿ"<This block of commented-out lines of code should be removed.(÷µ¹
+O
+java:S1874«"3Remove this use of "modelToView"; it is deprecated.(‡ìƒõúÿÿÿÿ
+R	java:S125°"<This block of commented-out lines of code should be removed.(÷µ¹
+[
+java:S6201À"EReplace this instanceof check and cast with 'instanceof Font newFont'(â™
+R	java:S125Ë"<This block of commented-out lines of code should be removed.(÷µ¹

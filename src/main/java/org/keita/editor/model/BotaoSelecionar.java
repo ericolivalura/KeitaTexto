@@ -5,7 +5,8 @@ public class BotaoSelecionar extends ItemDoMenu{
         super(s);
     }
 
-    private void selecionar() {
+    public void selecionar() {
+        System.out.println(listaDeAreasDeTexto);
         listaDeAreasDeTexto.get(abaTPane.getSelectedIndex()).selectAll();
     }
 }

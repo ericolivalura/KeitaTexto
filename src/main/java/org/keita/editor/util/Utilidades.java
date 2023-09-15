@@ -26,24 +26,21 @@ public class Utilidades {
         }
     }
 
-    public static void verNumeracao(int contador, boolean numeracao, ArrayList<JTextPane> listaDeAreasDeTexto, ArrayList<JScrollPane> listaScroll) {
+    public static void verNumeracao(boolean numeracao, ArrayList<JTextPane> listaDeAreasDeTexto, ArrayList<JScrollPane> listaScroll) {
         if (numeracao) {
-            for (int i = 0; i < contador; i++) {
+            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaScroll.get(i).setRowHeaderView(new TextLineNumber(listaDeAreasDeTexto.get(i)));
             }
         } else {
-            for (int i = 0; i < contador; i++) {
+            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaScroll.get(i).setRowHeaderView(null);
             }
         }
     }
 
-    public static void aplicarFundo(int contador, String tipoDeFundo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
-//        System.out.println(listaDeAreasDeTexto.size());
-//        System.out.println(tipoDeFundo);
-        System.out.println(TipoDeFundo.DARK.getNome());
+    public static void aplicarFundo(String tipoDeFundo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
         if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.NORMAL.getNome())) {
-            for (int i = 0; i < contador; i++) {
+            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaDeAreasDeTexto.get(i).selectAll();
 
                 StyleContext styleContext = StyleContext.getDefaultStyleContext();
@@ -58,13 +55,9 @@ public class Utilidades {
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.WHITE);
-//                System.out.println(listaDeAreasDeTexto.size());
-//                System.out.println(tipoDeFundo);
-               // System.out.println("cheguei");
             }
         } else if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.DARK.getNome())) {
-            System.out.println(contador);
-            for (int i = 0; i < contador; i++) {
+            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaDeAreasDeTexto.get(i).selectAll();
 
                 StyleContext styleContext = StyleContext.getDefaultStyleContext();
@@ -79,9 +72,6 @@ public class Utilidades {
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.BLACK);
-//                System.out.println(listaDeAreasDeTexto.size());
-//                System.out.println(tipoDeFundo);
-                System.out.println("cheguei");
             }
         }
     }
@@ -99,8 +89,8 @@ public class Utilidades {
         return botao;
     }
 
-    public static void mudarTamanhoDoTexto(int tamanho, int contador, ArrayList<JTextPane> listaDeAreasDeTexto  ){
-        for (int i = 0; i < contador; i++) {
+    public static void mudarTamanhoDoTexto(int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
+        for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
             JTextPane jTextPane = listaDeAreasDeTexto.get(i);
             jTextPane.selectAll();
             StyleContext styleContext = StyleContext.getDefaultStyleContext();
@@ -110,14 +100,14 @@ public class Utilidades {
         }
     }
 
-    public static void ativaItens(JMenuItem[] itens){
-        for (JMenuItem item: itens) {
+    public static void ativaItens(JMenuItem[] itens) {
+        for (JMenuItem item : itens) {
             item.setEnabled(true);
         }
     }
 
-    public static void desativaItens(JMenuItem[] itens){
-        for (JMenuItem item: itens) {
+    public static void desativaItens(JMenuItem[] itens) {
+        for (JMenuItem item : itens) {
             item.setEnabled(false);
         }
     }
