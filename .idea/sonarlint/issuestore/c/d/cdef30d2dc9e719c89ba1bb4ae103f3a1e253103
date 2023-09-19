@@ -1,0 +1,42 @@
+
+z
+java:S1450"XRemove the "aparencia" field and declare it as a local variable in the relevant methods.(ğŠªóıÿÿÿÿ8š‘áÇ©1
+x
+java:S1450"VRemove the "arquivo" field and declare it as a local variable in the relevant methods.(Ìœ†üÿÿÿÿ8ÖóçÇ©1
+„
+java:S1450"bRemove the "existeJanelaDeTexto" field and declare it as a local variable in the relevant methods.(„†ì•ÿÿÿÿÿ8öÍ—È©1
+~
+java:S1450&"\Remove the "labelAlfinete" field and declare it as a local variable in the relevant methods.(³ÙÏ¦ùÿÿÿÿ8ÂÓì©©1
+{
+java:S1450"YRemove the "selecionar" field and declare it as a local variable in the relevant methods.(¢Ãı¤øÿÿÿÿ8¶æåÇ©1
+t
+java:S1450%"RRemove the "url" field and declare it as a local variable in the relevant methods.(«Œåùÿÿÿÿ8ÒÓì©©1
+v
+java:S1450"YRemove the "visualizar" field and declare it as a local variable in the relevant methods.(óôÿ8¤éãÇ©1
+]	java:S125"<This block of commented-out lines of code should be removed.(ëµ÷îıÿÿÿÿ8˜›¿íª1
+X	java:S125"<This block of commented-out lines of code should be removed.(úŒÄ§8áÓì©©1
+X	java:S125"<This block of commented-out lines of code should be removed.(—œĞø8€Ôì©©1
+W	java:S125J"<This block of commented-out lines of code should be removed.(Õ×¦8¾Ôì©©1
+]	java:S125W"<This block of commented-out lines of code should be removed.(ßÜÃÅøÿÿÿÿ8ÁÔì©©1
+]	java:S125d"<This block of commented-out lines of code should be removed.(¾°ğŞüÿÿÿÿ8‹É²Ñ©1
+X
+java:S2696z"6Make the enclosing method "static" or remove this set.(’›Òæûÿÿÿÿ8à–éÊ©1
+S
+java:S2696ƒ"6Make the enclosing method "static" or remove this set.(äÀóZ8á–éÊ©1
+^	java:S125°"<This block of commented-out lines of code should be removed.( ÃŒêúÿÿÿÿ8ÑÔì©©1
+O
+java:S1068"-Remove this unused "aparencia" private field.(ğŠªóıÿÿÿÿ8ì‘áÇ©1
+L
+java:S1068!"*Remove this unused "normal" private field.(Ì¿Ô™ÿÿÿÿÿ8Õ„ôÌ©1
+J
+java:S1068""(Remove this unused "dark" private field.(¹ëÁŒûÿÿÿÿ8ì‘áÇ©1
+T
+java:S1068'"2Remove this unused "estadoAlfinete" private field.(°²œÙÿÿÿÿÿ8®Õì©©1
+M
+java:S1068+"0Remove this unused "abrirArquivo" private field.(›¢¬Á8‰ôçÇ©1
+L
+java:S1068,"*Remove this unused "salvar" private field.(ÏĞÌ‡øÿÿÿÿ8‰ôçÇ©1
+P
+java:S1068-".Remove this unused "salvarComo" private field.(±æª¢üÿÿÿÿ8‰ôçÇ©1
+T
+java:S1068."2Remove this unused "selecionarTudo" private field.(¼‡ÑÁıÿÿÿÿ8çæåÇ©1

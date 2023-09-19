@@ -1,6 +1,5 @@
 package org.keita.editor.util;
 
-import org.keita.editor.model.TipoDeFundo;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -34,44 +33,6 @@ public class Utilidades {
         } else {
             for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaScroll.get(i).setRowHeaderView(null);
-            }
-        }
-    }
-
-    public static void aplicarFundo(String tipoDeFundo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
-        if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.NORMAL.getNome())) {
-            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
-                listaDeAreasDeTexto.get(i).selectAll();
-
-                StyleContext styleContext = StyleContext.getDefaultStyleContext();
-
-                //Para a cor do texto
-                AttributeSet attributeSet = styleContext.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.BLACK);
-
-                // Para o tipo de texto
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontFamily, "Arial");
-
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, tamanho);
-
-                listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
-                listaDeAreasDeTexto.get(i).setBackground(Color.WHITE);
-            }
-        } else if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.DARK.getNome())) {
-            for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
-                listaDeAreasDeTexto.get(i).selectAll();
-
-                StyleContext styleContext = StyleContext.getDefaultStyleContext();
-
-                //Para a cor do texto
-                AttributeSet attributeSet = styleContext.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.WHITE);
-
-                // Para o tipo de texto
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontFamily, "Arial");
-
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, tamanho);
-
-                listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
-                listaDeAreasDeTexto.get(i).setBackground(Color.BLACK);
             }
         }
     }

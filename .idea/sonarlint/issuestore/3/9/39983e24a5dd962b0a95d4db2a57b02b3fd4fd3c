@@ -1,3 +1,11 @@
 
-]	java:S125"<This block of commented-out lines of code should be removed.(™‘ˆÍøÿÿÿÿ8ğ³•Û¤1
-]	java:S125"<This block of commented-out lines of code should be removed.(¬êùÿÿÿÿÿ8œ³–Û¤1
+o
+java:S37764"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(êÓ¯æ8İæ¯Ğ©1
+u
+java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ë±Û„ûÿÿÿÿ8íæ¯Ğ©1
+T
+java:S1068"2Remove this unused "selecionarTudo" private field.(¼‡ÑÁıÿÿÿÿ8íæ¯Ğ©1
+f
+java:S1144µ"HRemove this unused private "escolherOpcaoCancelarAoAbrirArquivo" method.(ŠÔÑÆ8íæ¯Ğ©1
+e
+java:S1144Ä"BRemove this unused private "escolherOpcaoOKAoAbrirArquivo" method.(ë±Û„ûÿÿÿÿ8íæ¯Ğ©1
