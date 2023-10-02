@@ -1,3 +1,11 @@
 
-•
-java:S1319)"sThe type of "listaDeAreasDeTexto" should be an interface such as "List" rather than the implementation "ArrayList".(Œó‚«ûÿÿÿÿ8Ó‡íëª1
+
+java:S13193"sThe type of "listaDeAreasDeTexto" should be an interface such as "List" rather than the implementation "ArrayList".(è­š€8Ó‡íëª1
+N
+java:S3010"2Remove this assignment of "barraDeAumentoDeFonte".(ëÜØ8ú©Œ²­1
+Q
+java:S2209"5Change this instance-reference to a static reference.(ëÜØ8ı©Œ²­1
+X	java:S125$"<This block of commented-out lines of code should be removed.(Ò Š¸8Ú·‚²­1
+X	java:S125,"<This block of commented-out lines of code should be removed.(Ò Š¸8Ü€ƒ²­1
+[
+java:S1128"9Remove this unused import 'org.keita.editor.view.Painel'.(Œä©«ùÿÿÿÿ8Óš²­1

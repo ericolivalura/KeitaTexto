@@ -1,0 +1,10 @@
+
+…
+java:S13195"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(´¢#
+†
+java:S13199"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(öÀÛ¬
+‹
+java:S1319="pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡õÍéıÿÿÿÿ
+‹
+java:S1319A"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ºßä°ÿÿÿÿÿ
+V	java:S125$"<This block of commented-out lines of code should be removed.(¡ù¨Øÿÿÿÿÿ

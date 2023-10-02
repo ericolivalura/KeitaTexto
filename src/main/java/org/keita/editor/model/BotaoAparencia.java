@@ -11,9 +11,17 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class BotaoAparencia extends ItemDoMenu {
+
+    private static BarraDeAumentoDeFonte barraDeAumentoDeFonte;
     public BotaoAparencia(String s) {
         super(s);
     }
+
+    public BotaoAparencia(String s, BarraDeAumentoDeFonte barraDeAumentoDeFonte) {
+        super(s);
+        this.barraDeAumentoDeFonte = barraDeAumentoDeFonte;
+    }
+
     private final String normal = TipoDeFundo.NORMAL.getNome();
     private final String dark = TipoDeFundo.DARK.getNome();
     private String tipoDeFundo = normal;
@@ -25,20 +33,22 @@ public class BotaoAparencia extends ItemDoMenu {
             elementoItem.addActionListener(e -> {
                 tipoDeFundo = normal;
                 if (abaTPane.getTabCount() > 0) {
-                    aplicarFundo(tipoDeFundo, Painel.getTamanhoDaFonte(), listaDeAreasDeTexto);
+//                    aplicarFundo(tipoDeFundo, Painel.getTamanhoDaFonte(), listaDeAreasDeTexto);
+                    aplicarFundo(tipoDeFundo, listaDeAreasDeTexto);
                 }
             });
         } else if (rotulo.equalsIgnoreCase(dark)) {
             elementoItem.addActionListener(e -> {
                 tipoDeFundo = dark;
                 if (abaTPane.getTabCount() > 0) {
-                    aplicarFundo(tipoDeFundo, Painel.getTamanhoDaFonte(), listaDeAreasDeTexto);
+//                    aplicarFundo(tipoDeFundo, Painel.getTamanhoDaFonte(), listaDeAreasDeTexto);
+                    aplicarFundo(tipoDeFundo, listaDeAreasDeTexto);
                 }
             });
         }
     }
 
-    public static void aplicarFundo(String tipoDeFundo, int tamanho, ArrayList<JTextPane> listaDeAreasDeTexto) {
+    public static void aplicarFundo(String tipoDeFundo, ArrayList<JTextPane> listaDeAreasDeTexto) {
         if (tipoDeFundo.equalsIgnoreCase(TipoDeFundo.NORMAL.getNome())) {
             for (int i = 0; i < listaDeAreasDeTexto.size(); i++) {
                 listaDeAreasDeTexto.get(i).selectAll();
@@ -51,7 +61,7 @@ public class BotaoAparencia extends ItemDoMenu {
                 // Para o tipo de texto
                 attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontFamily, "Arial");
 
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, tamanho);
+                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, barraDeAumentoDeFonte.getValue());
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.WHITE);
@@ -68,7 +78,7 @@ public class BotaoAparencia extends ItemDoMenu {
                 // Para o tipo de texto
                 attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontFamily, "Arial");
 
-                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, tamanho);
+                attributeSet = styleContext.addAttribute(attributeSet, StyleConstants.FontSize, barraDeAumentoDeFonte.getValue());
 
                 listaDeAreasDeTexto.get(i).setCharacterAttributes(attributeSet, false);
                 listaDeAreasDeTexto.get(i).setBackground(Color.BLACK);

@@ -1,11 +1,12 @@
 
-o
-java:S37764"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(êÓ¯æ8İæ¯Ğ©1
-u
-java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ë±Û„ûÿÿÿÿ8íæ¯Ğ©1
-T
-java:S1068"2Remove this unused "selecionarTudo" private field.(¼‡ÑÁıÿÿÿÿ8íæ¯Ğ©1
-f
-java:S1144µ"HRemove this unused private "escolherOpcaoCancelarAoAbrirArquivo" method.(ŠÔÑÆ8íæ¯Ğ©1
 e
-java:S1144Ä"BRemove this unused private "escolherOpcaoOKAoAbrirArquivo" method.(ë±Û„ûÿÿÿÿ8íæ¯Ğ©1
+java:S2095V"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(¤éÃà8‡Ú’®1
+X	java:S125)"<This block of commented-out lines of code should be removed.(´á€‰8Ú’®1
+G	java:S106="+Replace this use of System.out by a logger.(æ§÷í8•Ú’®1
+]	java:S125l"<This block of commented-out lines of code should be removed.(¹ø…øıÿÿÿÿ8Ú’®1
+]	java:S125p"<This block of commented-out lines of code should be removed.(³„Í şÿÿÿÿ8Ú’®1
+u
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ë±Û„ûÿÿÿÿ8£Ú’®1
+^	java:S125À"<This block of commented-out lines of code should be removed.(Á¡‡îıÿÿÿÿ8¦Ú’®1
+S
+java:S1128"6Remove this unused import 'jdk.jshell.execution.Util'.(œ¾Õï8«±’®1

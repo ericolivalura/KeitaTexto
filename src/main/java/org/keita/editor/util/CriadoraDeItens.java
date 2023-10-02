@@ -12,7 +12,7 @@ public class CriadoraDeItens {
     static BotaoVisualizar botaoVisualizar = new BotaoVisualizar(ItemDoMenu.VISUALIZAR);
     static BotaoEditar botaoEditar = new BotaoEditar(ItemDoMenu.EDITAR);
 
-    public static void criarItem(String rotulo, String menu) {
+    public static JMenuItem criarItem(String rotulo, String menu) {
         JMenuItem elementoItem = new JMenuItem(rotulo);
 
         if (menu.equalsIgnoreCase(ItemDoMenu.ARQUIVO)) {
@@ -26,6 +26,6 @@ public class CriadoraDeItens {
         } else if (menu.equalsIgnoreCase(ItemDoMenu.APARENCIA)) {
             botaoAparencia.criarItemAparencia(rotulo);
         }
-
+      return elementoItem;
     }
 }

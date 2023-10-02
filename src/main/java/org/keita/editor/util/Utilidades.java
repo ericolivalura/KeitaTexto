@@ -65,9 +65,19 @@ public class Utilidades {
         for (JMenuItem item : itens) {
             item.setEnabled(true);
         }
+    }    public static void ativaItens(ArrayList<JMenuItem> itens) {
+        for (JMenuItem item : itens) {
+            item.setEnabled(true);
+        }
     }
 
     public static void desativaItens(JMenuItem[] itens) {
+        for (JMenuItem item : itens) {
+            item.setEnabled(false);
+        }
+    }
+
+    public static void desativaItens(ArrayList<JMenuItem> itens) {
         for (JMenuItem item : itens) {
             item.setEnabled(false);
         }

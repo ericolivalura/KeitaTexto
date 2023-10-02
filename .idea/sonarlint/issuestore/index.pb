@@ -21,8 +21,6 @@ f
 6src/main/java/org/keita/editor/model/BotaoArquivo.java,3\9\39983e24a5dd962b0a95d4db2a57b02b3fd4fd3c
 e
 5src/main/java/org/keita/editor/model/BotaoEditar.java,d\b\db5d22b8b69f38031a775f8fab0f3f30c33cb7f8
-h
-8src/main/java/org/keita/editor/util/CriadoraDeMenus.java,8\4\84aeac2df4a3a17107db5a663f459faa08ac1c09
 i
 9src/main/java/org/keita/editor/model/BotaoVisualizar.java,f\6\f62d8df2a1afc7424180dd341004c7431fb2b453
 h
@@ -31,3 +29,13 @@ h
 8src/main/java/org/keita/editor/model/BotaoAparencia.java,c\c\ccd4e1b7503a863d9eadbf77250b6bdbe986f1a3
 c
 3src/main/java/org/keita/editor/util/Utilidades.java,3\8\38c7157735c1ecf9a396d8552b7f99f2455e8965
+g
+7src/main/java/org/keita/editor/model/MenuEmergente.java,c\3\c3f1c1d2c361d5c46938181bc5c7442eaf1d25c8
+h
+8src/main/java/org/keita/editor/model/ItemDoMenuItem.java,2\0\205aa3b3ab74b079bd35471bd05fc498fd47548d
+j
+:src/main/java/org/keita/editor/model/BotaoArquivoItem.java,2\b\2bd220d1b5bcef1e2efab076ff6337c6774664b0
+o
+?src/main/java/org/keita/editor/model/BarraDeAumentoDeFonte.java,0\5\0571b3df47c6db3506e89fa3b9178c8b2511e372
+g
+7src/main/java/org/keita/editor/util/CriadoraDeMenu.java,f\1\f1f9964ec23cb1743b2cf672f0e0b2f185709f6a

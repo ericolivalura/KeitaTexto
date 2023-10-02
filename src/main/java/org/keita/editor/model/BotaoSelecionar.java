@@ -16,13 +16,15 @@ public class BotaoSelecionar extends ItemDoMenu{
 
 
     public void criarMenuSelecionar() {
-        CriadoraDeItens.criarItem(selecionarTudo, ItemDoMenu.SELECIONAR);
+        JMenuItem selecionarTudoItem = CriadoraDeItens.criarItem(selecionarTudo, ItemDoMenu.SELECIONAR);
+        this.add(selecionarTudoItem);
     }
 
     public void criarItemSelecionar(String rotulo, JMenuItem elementoItem) {
         this.add(elementoItem);
         if (rotulo.equalsIgnoreCase(selecionarTudo)) {
-            itens[7] = elementoItem;
+            //itens[7] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(evento -> selecionar());
 
         }

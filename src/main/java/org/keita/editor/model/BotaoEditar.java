@@ -44,19 +44,24 @@ public class BotaoEditar extends ItemDoMenu {
     public void criarItemEditar(String rotulo, JMenuItem elementoItem) {
         this.add(elementoItem);
         if (rotulo.equalsIgnoreCase(desfazerSt)) {
-            itens[2] = elementoItem;
+           // itens[2] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(evento -> desfazer());
         } else if (rotulo.equalsIgnoreCase(refazerSt)) {
-            itens[3] = elementoItem;
+            //itens[3] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(evento -> refazer());
         } else if (rotulo.equalsIgnoreCase(cortarSt)) {
-            itens[4] = elementoItem;
+            //itens[4] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(cortar());
         } else if (rotulo.equalsIgnoreCase(copiarSt)) {
-            itens[5] = elementoItem;
+            //itens[5] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(copiar());
         } else if (rotulo.equalsIgnoreCase(colarSt)) {
-            itens[6] = elementoItem;
+            //itens[6] = elementoItem;
+            listaDeItens.add(elementoItem);
             elementoItem.addActionListener(colar());
         }
     }
@@ -73,7 +78,7 @@ public class BotaoEditar extends ItemDoMenu {
         return new DefaultEditorKit.CutAction();
     }
 
-    public void criarMenuEmergente() {
+    public JPopupMenu criarMenuEmergente() {
         menuEmergente = new JPopupMenu();
         JMenuItem cortar = new JMenuItem(this.cortarSt);
         cortar.addActionListener(cortar());
@@ -84,5 +89,6 @@ public class BotaoEditar extends ItemDoMenu {
         menuEmergente.add(cortar);
         menuEmergente.add(copiar);
         menuEmergente.add(colar);
+        return menuEmergente;
     }
 }
